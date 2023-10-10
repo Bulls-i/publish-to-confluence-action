@@ -31,5 +31,5 @@ runs:
       run: git clone https://github.com/Bulls-i/publish-to-confluence-action.git
       shell: bash
     - name: Run poetry command
-      run: poetry run python ./__main__.py 
+      run: poetry run python ./publish-to-confluence-action/__main__.py 
       shell: bash
