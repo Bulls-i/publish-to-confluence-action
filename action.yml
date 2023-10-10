@@ -1,0 +1,38 @@
+name: 'push_markdown_to_confluence'
+description: 'Publish Markdown files to Confluence'
+inputs:
+  confluence_url:
+    description: 'The URL of your Confluence instance, used for API calls and publishing content.'
+  parent_id:
+    description: 'The ID of the parent page in Confluence where the Markdown files will be published as child pages.'
+  confuence_user:
+    description: 'Your Atlassian account''s username, required for authentication when interacting with Confluence.'
+  api_token:
+    description: 'An API token generated for your Atlassian account, used for authentication when making API calls to Confluence.'
+  folder:
+    description: 'The folder where the markdown files are located'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  
+  - name: Install poetry
+    uses: snok/install-poetry@v1.0.0
+    with:
+      virtualenvs-create: true
+      virtualenvs-in-project: true
+    - name: Install dependencies
+      run: poetry install
+      shell: bash
+    - name: Run poetry command
+      run: poetry run python ./__main__.py 
+      shell: bash
+  env:
+    CONFLUENCE_URL: ${{ inputs.confluence_url }}
+    PARENT_ID: ${{ inputs.parent_id }}
+    CONFLUENCE_USER: ${{ inputs.confuence_user }}
+    API_TOKEN: ${{ inputs.api_token }}
+    FOLDER: ${{ inputs.folder }}

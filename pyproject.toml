@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "push-to-confluence-action"
+version = "0.1.0"
+description = "An github action that pushes content to confluence"
+authors = ["Safi-Bouziane <safi.bouziane@outlook.be>"]
+readme = "README.md"
+packages = [{include = "push"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+atlassian-python-api = "^3.41.2"
+markdown = "^3.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
