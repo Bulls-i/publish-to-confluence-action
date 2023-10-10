@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "An github action that pushes content to confluence"
 authors = ["Safi-Bouziane <safi.bouziane@outlook.be>"]
 readme = "README.md"
-packages = [{include = "push"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
