@@ -28,8 +28,8 @@ runs:
         virtualenvs-create: true
         virtualenvs-in-project: true
     - name: Install dependencies
-      run: cd ./publish-to-confluence-action && poetry install
+      run: cd ./publish-to-confluence-action && poetry install && poetry env list
       shell: bash    
     - name: Run main command
-      run: cd ./publish-to-confluence-action  && python __main__.py 
+      run: publish-to-confluence-action/.venv/bin/activate && python ./publish-to-confluence-action/__main__.py 
       shell: bash
