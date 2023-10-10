@@ -14,12 +14,6 @@ inputs:
 
 runs:
   using: 'composite'
-  env:
-    CONFLUENCE_URL: ${{ inputs.confluence_url }}
-    PARENT_ID: ${{ inputs.parent_id }}
-    CONFLUENCE_USER: ${{ inputs.confuence_user }}
-    API_TOKEN: ${{ inputs.api_token }}
-    FOLDER: ${{ inputs.folder }}
   steps:
     - name: Install Python
       uses: actions/setup-python@v4
