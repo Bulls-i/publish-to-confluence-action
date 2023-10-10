@@ -19,7 +19,7 @@ runs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'  
-  - name: Install poetry
+    - name: Install poetry
     uses: snok/install-poetry@v1.0.0
     with:
       virtualenvs-create: true
