@@ -31,5 +31,5 @@ runs:
       run: cd ./publish-to-confluence-action && poetry install
       shell: bash    
     - name: Run poetry command
-      run: poetry run python ./publish-to-confluence-action/__main__.py 
+      run: poetry run python3 ./publish-to-confluence-action/__main__.py 
       shell: bash
