@@ -22,14 +22,9 @@ runs:
     - name: Clone action repo
       run: git clone https://github.com/Bulls-i/publish-to-confluence-action.git
       shell: bash
-    - name: Install poetry
-      uses: snok/install-poetry@v1.3.4
-      with:
-        virtualenvs-create: true
-        virtualenvs-in-project: true
     - name: Install dependencies
-      run: cd ./publish-to-confluence-action && poetry install && poetry env list
+      run: cd ./publish-to-confluence-action && pip install -r requirements.txt
       shell: bash    
     - name: Run main command
-      run: poetry shell && python ./publish-to-confluence-action/__main__.py 
+      run: python ./publish-to-confluence-action/__main__.py 
       shell: bash

@@ -1,8 +1,5 @@
 from confluence_api_utils import utils
-import dotenv
 import os
-
-dotenv.load_dotenv()
 
 token = os.getenv("API_TOKEN")
 user = os.getenv("CONFLUENCE_USER")
