@@ -4,8 +4,9 @@ import os
 token = os.getenv("API_TOKEN")
 user = os.getenv("CONFLUENCE_USER")
 url = os.getenv("CONFLUENCE_URL")
-directory = os.getenv("FOLDER")
+token = os.getenv("API_TOKEN")
 parent_id = os.getenv("PARENT_ID")
+directory = os.getenv("FOLDER")
 
 
 def main():

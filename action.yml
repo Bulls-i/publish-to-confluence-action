@@ -3,12 +3,12 @@ description: 'Publish Markdown files to Confluence'
 inputs:
   confluence_url:
     description: 'The URL of your Confluence instance, used for API calls and publishing content.'
-  parent_id:
-    description: 'The ID of the parent page in Confluence where the Markdown files will be published as child pages.'
   confuence_user:
     description: 'Your Atlassian account''s username, required for authentication when interacting with Confluence.'
   api_token:
     description: 'An API token generated for your Atlassian account, used for authentication when making API calls to Confluence.'
+  parent_id:
+    description: 'The ID of the parent page in Confluence where the Markdown files will be published as child pages.'  
   folder:
     description: 'The folder where the markdown files are located'
 
@@ -28,3 +28,9 @@ runs:
     - name: Run main command
       run: python ./publish-to-confluence-action/__main__.py 
       shell: bash
+      env:
+        CONFLUENCE_URL: ${{ inputs.confluence_url }}
+        CONFLUENCE_USER: ${{ inputs.confuence_user }}
+        API_TOKEN: ${{ inputs.api_token }}
+        PARENT_ID: ${{ inputs.parent_id }}
+        FOLDER: ${{ inputs.folder }}
