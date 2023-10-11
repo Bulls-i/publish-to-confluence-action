@@ -10,7 +10,9 @@ inputs:
   parent_id:
     description: 'The ID of the parent page in Confluence where the Markdown files will be published as child pages.'  
   folder:
-    description: 'The folder where the markdown files are located'
+    description: 'The folder where the markdown files are located.'
+  project_title:
+    description: 'The title that will be appended to each confluence page.'
 
 runs:
   using: 'composite'
@@ -34,3 +36,4 @@ runs:
         API_TOKEN: ${{ inputs.api_token }}
         PARENT_ID: ${{ inputs.parent_id }}
         FOLDER: ${{ inputs.folder }}
+        PROJECT_TITLE: ${{ inputs.project_title }}
