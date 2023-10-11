@@ -43,7 +43,7 @@ def create_parent_page(confluence_auth: Confluence, parent_id, space_id, title):
 
 def convert_md_to_html(directory, confluence_auth: Confluence, parent_id, title):
     space_id = confluence_auth.get_page_space(parent_id)
-    parent_id = create_parent_page(confluence_auth, parent_id,space_id,title, '')
+    parent_id = create_parent_page(confluence_auth, parent_id,space_id,title)
     pattern = "*.md"
 
     for path, subdirs, files in os.walk(directory):
