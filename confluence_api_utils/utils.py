@@ -15,11 +15,16 @@ def authenticate(jira_url, jira_username, jira_api_token):
 
 def try_creating_page(confluence_auth: Confluence, parent_id, space_id, title, body):
     try:
-        confluence_auth.create_page(space_id, title, body, parent_id)
-        print("Created page successfully")
+        if confluence_auth.page_exists(space_id, title):
+            page_id = confluence_auth.get_page_id(space_id, title)
+            confluence_auth.update_existing_page(page_id, title, body)
+            print("Updated page successfully")
+        else:
+            confluence_auth.create_page(space_id, title, body, parent_id)
+            print("Created page successfully")
     except HTTPError:
         print(
-            "incoming request is incomplete or otherwise invalid. Examples are pages already existing, invalid space_id id, etc."
+            "incoming request is incomplete or otherwise invalid. For example an incorrect parent id."
         )
 
 
