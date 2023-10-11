@@ -32,7 +32,7 @@ def create_parent_page(confluence_auth: Confluence, parent_id, space_id, title):
         if confluence_auth.page_exists(space_id, title):
             print("Parent page already exists for this project")
         else:
-            confluence_auth.create_page(space_id, title, "{}", parent_id)
+            confluence_auth.create_page(space_id, title, "", parent_id)
             print("Created parent page successfully")
     except HTTPError:
         print(
@@ -48,7 +48,7 @@ def convert_md_to_html(directory, confluence_auth: Confluence, parent_id, title)
 
     for path, subdirs, files in os.walk(directory):
         if path is not directory:
-            title = f"{title}_{path.partition(directory)[-1]}"
+            title = f"{title}/{os.path.basename(path)}"
             try_creating_page(confluence_auth, parent_id, space_id, title, "")
             new_parent_id = confluence_auth.get_page_id(space_id, title)
             parent_id = new_parent_id
